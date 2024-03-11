@@ -76,9 +76,13 @@ for coluna in planilha.iter_rows(min_row=2, values_only=True):
     cc.send_keys(Keys.ENTER)
     time.sleep(1)
 #funcionario
-    #func = navegador.find_element(By.XPATH,'//*[@id="inputString"]')
-    #func.send_keys(infrator)
-    #time.sleep(1)
+    if infrator and infrator.strip():
+        func = navegador.find_element(By.XPATH,'//*[@id="inputString"]')
+        func.send_keys(infrator)
+        time.sleep(1)
+        Sugestao = navegador.find_element(By.XPATH,'//*[@id="suggestions1"]')
+        Sugestao.click()
+        time.sleep(1)
 #data infração
     data = navegador.find_element(By.XPATH,'//*[@id="dt_multa"]')
     data.send_keys(dt_infracao)
